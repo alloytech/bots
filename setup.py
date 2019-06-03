@@ -81,13 +81,6 @@ extras_require = {
         ],
     }
 
-# Add OS-specific dependencies
-operating_system = platform.system()
-if operating_system == 'Linux':
-    install_requires.append('pyinotify')
-elif operating_system == 'Windows':
-    install_requires.append('pywin32')
-
 classifiers = [
     'Development Status :: 5 - Production/Stable',
     'Operating System :: OS Independent',
