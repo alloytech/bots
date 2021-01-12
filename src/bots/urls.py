@@ -14,8 +14,7 @@ superuser_required = user_passes_test(lambda u: u.is_superuser)
 
 run_permission = user_passes_test(lambda u: u.has_perm('bots.change_mutex'))
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^login.*', 'django.contrib.auth.views.login', {'template_name': 'admin/login.html'}),
     url(r'^logout.*', 'django.contrib.auth.views.logout', {'next_page': '/'}),
     url(r'^password_change/$', 'django.contrib.auth.views.password_change', name='password_change'),
@@ -48,6 +47,6 @@ urlpatterns = patterns(
     url(r'^sendtestmail.*', superuser_required(views.sendtestmailmanagers)),
     #catch-all
     url(r'^.*', 'bots.views.index'),
-    )
+    ]
 
 handler500 = 'bots.views.server_error'
